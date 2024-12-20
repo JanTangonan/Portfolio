@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from '@mui/material/Button';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -49,7 +50,9 @@ const Contact = () => {
             required
           />
         </label>
-        <button type="submit">Send</button>
+        <Button variant="contained" color="primary">
+          Send
+        </Button>
       </form>
     </section>
   );
