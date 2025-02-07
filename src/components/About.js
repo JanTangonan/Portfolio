@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Grid, Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "../context/ThemeContext";
+import { Link } from "react-scroll";
 
 const About = () => {
   const { darkMode } = useTheme();
@@ -55,7 +56,7 @@ const About = () => {
             </Typography>
 
             <Typography variant="body1" sx={{ mb: 4, color: darkMode ? "#ddd" : "#666" }}>
-              From the very beginning, Jumba has embraced the philosophy of continuous growth and relentless pursuit of excellence. Starting as a passionate learner with a curious mind, Jumba transformed challenges into opportunities, building a career that reflects dedication, adaptability, and innovation.
+              From the very beginning, Arvin has embraced the philosophy of continuous growth and relentless pursuit of excellence. Starting as a passionate learner with a curious mind, Arvin transformed challenges into opportunities, building a career that reflects dedication, adaptability, and innovation.
             </Typography>
 
             <Grid container spacing={2}>
