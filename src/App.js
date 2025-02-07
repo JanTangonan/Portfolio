@@ -9,7 +9,7 @@ import { useTheme } from "./context/ThemeContext";
 import { IconButton } from "@mui/material";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { Container, Grid, Typography } from '@mui/material';
+import Projects from "./components/Projects";
 
 function App() {
   const { darkMode, toggleTheme } = useTheme();
@@ -17,7 +17,7 @@ function App() {
   return (
     <div 
       style={{
-        backgroundColor: darkMode ? '#121212' : '#ffffff',
+        backgroundColor: darkMode ? '#2e2e2e' : '#ffffff',
         color: darkMode ? '#ffffff' : '#121212',
         transition: 'all 0.3s ease-in-out',
         minHeight: '100vh'
@@ -41,29 +41,18 @@ function App() {
       </IconButton>
       <Home />
       <About />
+      <Projects />
       <Hobbies />
       <Contact />
-      <footer style={{
-        backgroundColor: '#1976d2',
-        color: 'white',
-        padding: '2rem 0',
-        marginTop: 'auto'
-      }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={3} alignItems="center" justifyContent="space-between">
-            <Grid item>
-              <SocialMedia />
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" sx={{ 
-                fontWeight: 500,
-                letterSpacing: 1
-              }}>
-                © {new Date().getFullYear()} Jumba | All Rights Reserved
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
+      <footer style={{ backgroundColor: '#333', color: '#fff', padding: '20px 0', textAlign: 'center' }}>
+        <div style={{ marginBottom: '10px' }}>
+          <SocialMedia />
+        </div>
+        <p style={{ margin: 0 }}>© 2024 Jumba. All rights reserved.</p>
+        <p style={{ margin: 0 }}>
+          <a href="/privacy-policy" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>Privacy Policy</a> | 
+          <a href="/terms-of-service" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>Terms of Service</a>
+        </p>
       </footer>
     </div>
   );

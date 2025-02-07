@@ -10,24 +10,43 @@ const Hobbies = () => {
 
   const hobbies = [
     {
-      name: "Traveling",
-      img: "/images/travel.jpg",
-      description: "Exploring new places and experiencing different cultures",
-      stats: "10+ countries visited"
+        name: "Gaming",
+        img: "/images/gaming.jpg",
+        description: "Enjoying strategic gameplay and immersive virtual adventures",
+        stats: "500+ gaming hours"
     },
     {
-      name: "Photography",
-      img: "/images/photography.jpg",
-      description: "Capturing life's beautiful moments through my lens",
-      stats: "1000+ photos taken"
+        name: "Photography",
+        img: "/images/photography.jpg",
+        description: "Capturing life's beautiful moments through my lens",
+        stats: "1000+ photos taken"
     },
     {
-      name: "Gaming",
-      img: "/images/gaming.jpg",
-      description: "Enjoying strategic gameplay and virtual adventures",
-      stats: "500+ gaming hours"
+        name: "Singing",
+        img: "/images/singing.jpg",
+        description: "Expressing emotions and creativity through music",
+        stats: "Performed at multiple events"
+    },
+    {
+        name: "Playing the Guitar",
+        img: "/images/guitar.jpg",
+        description: "Strumming melodies and learning new tunes",
+        stats: "5+ years of playing experience"
+    },
+    {
+        name: "Running",
+        img: "/images/running.jpg",
+        description: "Staying active and pushing my limits",
+        stats: "Completed several 5K runs"
+    },
+    {
+        name: "Working Out",
+        img: "/images/workout.jpg",
+        description: "Building strength and staying fit",
+        stats: "Consistently training 4-5 times a week"
     }
-  ];
+];
+
 
   const settings = {
     dots: true,
@@ -75,67 +94,29 @@ const Hobbies = () => {
         >
           My Hobbies
         </Typography>
-
-        <Box sx={{ maxWidth: "900px", mx: "auto" }}>
-          <Slider {...settings}>
-            {hobbies.map((hobby, index) => (
-              <Box key={index} sx={{ p: 2 }}>
-                <Card
-                  sx={{
-                    backgroundColor: darkMode ? "#333" : "#fff",
-                    borderRadius: "20px",
-                    overflow: "hidden",
-                    boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
-                    transition: "transform 0.3s ease",
-                    "&:hover": {
-                      transform: "translateY(-10px)",
-                    },
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    height="400"
-                    image={hobby.img}
-                    alt={hobby.name}
-                    sx={{
-                      objectFit: "cover",
-                    }}
-                  />
-                  <CardContent sx={{ p: 4 }}>
-                    <Typography
-                      variant="h4"
-                      sx={{
-                        mb: 2,
-                        color: darkMode ? "#fff" : "#333",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {hobby.name}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        mb: 2,
-                        color: darkMode ? "#ddd" : "#666",
-                      }}
-                    >
-                      {hobby.description}
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        color: "#2196F3",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {hobby.stats}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>
-            ))}
-          </Slider>
-        </Box>
+        <Slider {...settings}>
+          {hobbies.map((hobby, index) => (
+            <Card key={index} sx={{ maxWidth: 345, mx: "auto", mb: 4 }}>
+              <CardMedia
+                component="img"
+                height="140"
+                image={hobby.img}
+                alt={hobby.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {hobby.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {hobby.description}
+                </Typography>
+                <Typography variant="caption" display="block" sx={{ mt: 1 }}>
+                  {hobby.stats}
+                </Typography>
+              </CardContent>
+            </Card>
+          ))}
+        </Slider>
       </Container>
     </Box>
   );

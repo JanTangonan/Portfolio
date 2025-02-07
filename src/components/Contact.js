@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { 
-  Button,
-  TextField,
-  Container,
-  Box,
-  Typography,
-  Paper,
-  Grid 
-} from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { useTheme } from "../context/ThemeContext";
 
 const Contact = () => {
+  const { darkMode } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,86 +24,92 @@ const Contact = () => {
   };
 
   return (
-    <Box 
-      id="contact" 
-      sx={{ 
-        py: 8,
-        backgroundColor: '#f5f5f5'
+    <Box
+      id="contact"
+      sx={{
+        py: 10,
+        backgroundColor: darkMode ? "#1a1a1a" : "#f5f7fa",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center"
       }}
     >
-      <Container maxWidth="md">
-        <Paper elevation={3} sx={{ p: 4 }}>
-          <Typography 
-            variant="h3" 
-            component="h2" 
-            align="center" 
-            gutterBottom
-            sx={{ mb: 4 }}
+      <Container component="section" maxWidth="sm">
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: "center",
+            mb: 6,
+            background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            fontWeight: "bold",
+          }}
+        >
+          Contact Me
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            autoComplete="name"
+            autoFocus
+            sx={{
+              backgroundColor: darkMode ? "#333" : "#fff",
+              borderRadius: "5px",
+            }}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            autoComplete="email"
+            sx={{
+              backgroundColor: darkMode ? "#333" : "#fff",
+              borderRadius: "5px",
+            }}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="message"
+            label="Message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            multiline
+            rows={4}
+            sx={{
+              backgroundColor: darkMode ? "#333" : "#fff",
+              borderRadius: "5px",
+            }}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              mt: 3,
+              mb: 2,
+              background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+              color: "white",
+            }}
           >
-            Contact Me
-          </Typography>
-          
-          <form onSubmit={handleSubmit}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  variant="outlined"
-                />
-              </Grid>
-              
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  variant="outlined"
-                />
-              </Grid>
-              
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  multiline
-                  rows={4}
-                  variant="outlined"
-                />
-              </Grid>
-              
-              <Grid item xs={12} sx={{ textAlign: 'center' }}>
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  size="large"
-                  type="submit"
-                  endIcon={<SendIcon />}
-                  sx={{ 
-                    mt: 2,
-                    px: 4,
-                    py: 1.5,
-                    borderRadius: 2
-                  }}
-                >
-                  Send Message
-                </Button>
-              </Grid>
-            </Grid>
-          </form>
-        </Paper>
+            Submit
+          </Button>
+        </Box>
       </Container>
     </Box>
   );
